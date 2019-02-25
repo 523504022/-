@@ -1,16 +1,16 @@
 <template>
   <section class="profile">
     <Header title="我的"/>
-    <section class="profile-number">
+    <section class="profile-number" @click="$router.push('/login')">
       <a href="javascript:" class="profile-link">
         <div class="profile_image">
-          <i class="iconfont icon-person"></i>
+          <i class="iconfont icon-iocn-icon-person preson"></i>
         </div>
         <div class="user-info">
           <p class="user-info-top">登录/注册</p>
           <p>
             <span class="user-icon">
-              <i class="iconfont icon-shouji icon-mobile"></i>
+              <i class="iconfont icon-shouji"></i>
             </span>
             <span class="icon-mobile-number">暂无绑定手机号</span>
           </p>
@@ -126,7 +126,7 @@ export default {
         overflow: hidden;
         vertical-align: top;
 
-        .icon-person {
+        .preson {
           background: #e4e4e4;
           font-size: 62px;
         }
