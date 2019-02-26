@@ -15,6 +15,8 @@ import {reqAddress} from './api'
     mounted () {
       // 触发vuex的getAddress调用，从后台获取address信息
       this.$store.dispatch('getAddress')
+      // 触发vuex的getUser调用，从后台获取用户信息
+      this.$store.dispatch('getUser')
     }
   }
 </script>
