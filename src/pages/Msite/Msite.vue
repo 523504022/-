@@ -52,7 +52,10 @@ export default {
     ShopList
   },
   computed: {
-    ...mapState(['address','categorys']),
+    ...mapState({
+      address: state => state.msite.address,
+      categorys: state => state.msite.categorys
+    }),
 
     // 根据categyrs一维生成二维数组，小数组中的length最大为8
     categyrsArr() {

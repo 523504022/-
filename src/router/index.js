@@ -7,6 +7,10 @@ import Order from '../pages/Order/Order.vue'
 import Profile from '../pages/Profile/Profile.vue'
 import Search from '../pages/Search/Search.vue'
 import Login from '../pages/Login/Login.vue'
+import Shop from '../pages/Shop/Shop.vue'
+import Goods from '../pages/Shop/Goods/Goods.vue'
+import Info from '../pages/Shop/Info/Info.vue'
+import Ratings from '../pages/Shop/Ratings/Ratings.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +49,29 @@ export default new VueRouter({
         {
             path: '/login',
             component: Login
+        },
+        {
+            path: '/shop',
+            component: Shop,
+            children:[
+                {
+                    path: '/shop/goods',
+                    component: Goods
+                },
+                {
+                    path: '/shop/info',
+                    component: Info
+                },
+                {
+                    path: '/shop/ratings',
+                    component: Ratings
+                },
+                {
+                    // 默认显示goods
+                    path :'',
+                    redirect: '/shop/goods'
+                }
+            ]
         },
         {
             // 设置默认跳转到msite路由

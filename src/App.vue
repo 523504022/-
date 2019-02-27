@@ -7,16 +7,17 @@
 
 <script>
 import FooterGuide from './components/FooterGuide/FooterGuide'
-import {reqAddress} from './api'
   export default {
     components: {
       FooterGuide
     },
-    mounted () {
+    async mounted () {
       // 触发vuex的getAddress调用，从后台获取address信息
       this.$store.dispatch('getAddress')
       // 触发vuex的getUser调用，从后台获取用户信息
       this.$store.dispatch('getUser')
+      
+      this.$store.dispatch('getShopInfo')
     }
   }
 </script>

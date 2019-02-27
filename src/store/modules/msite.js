@@ -1,22 +1,36 @@
-// 包含N个间接更新状态数据的方法的对象
+import {
+    RECEIVE_ADDRESS,
+    RECEIVE_CATEGORYS,
+    RECEIVE_SHOPS
+} from '../mutation-type'
 
 import {
     reqAddress,
     reqCategorys,
-    reqShops,
-    reqUser,
-    reqLogout
-} from '../api'
+    reqShops
+} from '../../api'
 
-import {
-    RECEIVE_ADDRESS,
-    RECEIVE_CATEGORYS,
-    RECEIVE_SHOPS,
-    RECEIVE_USER,
-    RESET_USER
-} from './mutation-type'
+const state = {
+    latitude: 34.78,
+    longitude: 111.20,
+    address: {},//当前地信息对象
+    categorys: [],//食品分类列表
+    shops:[],//商家列表
+}
 
-export default{
+const mutations = {
+    [RECEIVE_ADDRESS](state,address){
+        state.address = address
+    },
+    [RECEIVE_CATEGORYS](state,categorys){
+        state.categorys = categorys
+    },
+    [RECEIVE_SHOPS](state,shops){
+        state.shops = shops
+    },
+}
+
+const actions = {
     // 异步获取地址
     async getAddress ({commit,state}){
         // 发送ajax请求
@@ -45,23 +59,15 @@ export default{
             commit(RECEIVE_SHOPS,result.data)
         }
     },
-    // 同步获取用户信息对象
-    saveUser({commit},user){
-        commit(RECEIVE_USER,user)
-    },
-    // 异步获取当前用户信息
-    async getUser({commit}){
-        const result = await reqUser()
-        if(result.code === 0){
-            const user = result.data
-            commit(RECEIVE_USER,user)
-        }
-    },
-    // 退出登录
-    async logout ({commit}){
-        const result = await reqLogout()
-        if(result.code === 0){
-            commit(RESET_USER)
-        }
-    }
+}
+
+const getters = {
+    
+}
+
+export default{
+    state,
+    mutations,
+    actions,
+    getters
 }
