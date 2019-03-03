@@ -1,8 +1,8 @@
 <template>
   <div class="shop-header">
     <nav class="shop-nav" :style="{backgroundImage: `url(${info.bgImg})`}">
-      <a class="back">
-        <i class="iconfont icon-arrow_left"/>
+      <a class="back" @click="$router.replace('/msite')">
+        <i class="iconfont icon-fanhui"/>
       </a>
     </nav>
     <div class="shop-content" @click="showBulletin=true">
@@ -76,7 +76,7 @@
           </h3>
           <div class="brief-modal-notice">{{info.bulletin}}</div>
           <div class="mask-footer" @click="showBulletin=false">
-            <span class="iconfont icon-close"></span>
+            <span class="iconfont icon-fanhui"></span>
           </div>
         </div>
         <div class="brief-modal-cover"></div>
@@ -95,7 +95,7 @@
           </li>
         </ul>
         <div class="activity-sheet-close" @click="showDiscounts=false">
-          <span class="iconfont icon-close"></span>
+          <span class="iconfont icon-fanhui"></span>
         </div>
       </div>
       <div class="activity-sheet-cover"></div>
@@ -152,7 +152,7 @@ export default {
       top: 10px;
       left: 0;
 
-      .icon-arrow_left {
+      .icon-fanhui {
         display: block;
         padding: 5px;
         font-size: 20px;
